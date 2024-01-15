@@ -1,0 +1,6 @@
+python-telegram-bot
+Flask
+httpx
+requests
+html_text
+typing
