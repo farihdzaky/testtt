@@ -176,7 +176,7 @@ def main() -> None:
         application.add_handler(InlineQueryHandler(handle_inline))
 
         # Set the webhook for the Flask app
-        application.bot.setWebhook(url="https://yourdomain.com/webhook")
+        #application.bot.setWebhook(url="https://yourdomain.com/webhook")
 
         # Run the Flask app
         app.run(port=5000, debug=True)
