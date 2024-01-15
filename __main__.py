@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, MessageHandler, filters, InlineQueryHandler, CallbackContext, CommandHandler
+from telegram.ext import Application, MessageHandler, filters, InlineQueryHandler, CallbackContext, CommandHandler, Dispatcher
 import logging
 import random
 import re
@@ -19,6 +19,8 @@ logging.basicConfig(
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
+
+dispatcher = Dispatcher(bot, None, use_context=True)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -179,7 +181,7 @@ def main() -> None:
         #application.bot.setWebhook(url="https://yourdomain.com/webhook")
 
         # Run the Flask app
-        app.run(port=5000, debug=True)
+        app.run(port=3000, debug=True)
 
     except Exception as e:
         logger.error(f"An error occurred in main function: {e}")
